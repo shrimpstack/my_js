@@ -1,4 +1,4 @@
-/* v 1.0.0 */
+/* v 1.0.1 */
 
 function find_all(param1, param2) {
   if(typeof param1 == 'string') return document.querySelectorAll(param1);
@@ -36,7 +36,7 @@ function new_el(tag_str, param1, param2) {
     return true;
   }
   function set_content(param) {
-    if(param == null || param == undefined || param == false) return;
+    if(param == null || param == undefined || param === false) return;
     else if(param instanceof HTMLElement) return el.appendChild(param);
     else if(param instanceof Node && param.nodeType == Node.TEXT_NODE) return el.appendChild(param);
     else if(typeof param == "string" || typeof param == "number") return el.innerText = param;
