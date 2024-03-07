@@ -1,4 +1,4 @@
-/* v 1.3 */
+/* v 1.4 */
 
 class Slug {
   static is_touch = false;
@@ -163,8 +163,8 @@ class Slug {
       obj.homeY = Math.round(obj.docY - Slug.cur_home.docY - (obj.offsetY || 0));
     }
     if(Slug.start_home) {
-      obj.originX = Math.round(obj.docX - Slug.start_home.docX - (obj.offsetX || 0) + Slug.start_home.scrollLeft);
-      obj.originY = Math.round(obj.docY - Slug.start_home.docY - (obj.offsetY || 0) + Slug.start_home.scrollTop);
+      obj.originX = Math.round(obj.x - Slug.start_home.docX - (obj.offsetX || 0) + Slug.start_home.scrollLeft);
+      obj.originY = Math.round(obj.y - Slug.start_home.docY - (obj.offsetY || 0) + Slug.start_home.scrollTop);
     }
     return obj;
   }
