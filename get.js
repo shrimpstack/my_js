@@ -1,4 +1,4 @@
-function post(url, data) {
+function get(url, data) {
   if(!window.XMLHttpRequest) {
     alert('無法連線，請更換瀏覽器');
     return;
@@ -8,10 +8,14 @@ function post(url, data) {
     return;
   }
   return new Promise((resolve, reject) => {
+    let form_str = Object.entries(data).map(({key, val}) => {
+      return key + "=" + encodeURI(val);
+    }).join("&");
+    if(form_str) url += "?" + form_str;
     let xhr = new XMLHttpRequest();
-    xhr.open("POST", url, true);
-    xhr.addEventListener("load", () => {
-      if(xhr.status == 200) {
+    xhr.open("GET", url, true);
+    xhr.addEventListener('load', () => {
+      if(xhr.status == 200){
         resolve(xhr.responseText);
       }
       else {
@@ -19,7 +23,6 @@ function post(url, data) {
       }
     });
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    let content = JSON.stringify(data);
-    xhr.send("content=" + encodeURI(content));
+    xhr.send();
   });
 }
