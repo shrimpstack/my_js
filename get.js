@@ -8,7 +8,7 @@ function get(url, data) {
     return;
   }
   return new Promise((resolve, reject) => {
-    let form_str = Object.entries(data).map(({key, val}) => {
+    let form_str = Object.entries(data).map(([key, val]) => {
       return key + "=" + encodeURI(val);
     }).join("&");
     if(form_str) url += "?" + form_str;
