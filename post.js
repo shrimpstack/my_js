@@ -38,7 +38,7 @@ function post_2(url, param = {}) {
     xhr.open("POST", url, true);
     xhr.responseType = "json";
     xhr.addEventListener("load", () => {
-      if(xhr.status == 200 || xhr.status == 201) {
+      if(xhr.status == 200) {
         resolve(xhr.response);
       }
       else {
@@ -70,7 +70,7 @@ function post_3(url, body = {}) {
     xhr.open("POST", url, true);
     xhr.responseType = "json";
     xhr.addEventListener("load", () => {
-      if(xhr.status == 200 || xhr.status == 201) {
+      if(xhr.status == 200) {
         resolve(xhr.response);
       }
       else {
